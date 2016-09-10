@@ -14,6 +14,12 @@
 		2700C51F1D83BE2900806015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2700C51D1D83BE2900806015 /* Main.storyboard */; };
 		2700C5211D83BE2900806015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2700C5201D83BE2900806015 /* Assets.xcassets */; };
 		2700C5241D83BE2900806015 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2700C5221D83BE2900806015 /* LaunchScreen.storyboard */; };
+		272AF8FF1D83E2A9001B1594 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 272AF8FE1D83E2A9001B1594 /* loading.png */; };
+		272AF9051D83E437001B1594 /* background in Resources */ = {isa = PBXBuildFile; fileRef = 272AF9001D83E437001B1594 /* background */; };
+		272AF9061D83E437001B1594 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 272AF9011D83E437001B1594 /* enemy.png */; };
+		272AF9071D83E437001B1594 /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 272AF9021D83E437001B1594 /* main.png */; };
+		272AF9081D83E437001B1594 /* nest.png in Resources */ = {isa = PBXBuildFile; fileRef = 272AF9031D83E437001B1594 /* nest.png */; };
+		272AF9091D83E437001B1594 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 272AF9041D83E437001B1594 /* star.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		2700C5201D83BE2900806015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2700C5231D83BE2900806015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2700C5251D83BE2900806015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		272AF8FE1D83E2A9001B1594 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
+		272AF9001D83E437001B1594 /* background */ = {isa = PBXFileReference; lastKnownFileType = file; path = background; sourceTree = "<group>"; };
+		272AF9011D83E437001B1594 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
+		272AF9021D83E437001B1594 /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
+		272AF9031D83E437001B1594 /* nest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nest.png; sourceTree = "<group>"; };
+		272AF9041D83E437001B1594 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,12 @@
 		2700C5141D83BE2900806015 /* RunForUrLife */ = {
 			isa = PBXGroup;
 			children = (
+				272AF9001D83E437001B1594 /* background */,
+				272AF9011D83E437001B1594 /* enemy.png */,
+				272AF9021D83E437001B1594 /* main.png */,
+				272AF9031D83E437001B1594 /* nest.png */,
+				272AF9041D83E437001B1594 /* star.png */,
+				272AF8FE1D83E2A9001B1594 /* loading.png */,
 				2700C5151D83BE2900806015 /* AppDelegate.swift */,
 				2700C5171D83BE2900806015 /* GameScene.sks */,
 				2700C5191D83BE2900806015 /* GameScene.swift */,
@@ -128,7 +146,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				272AF9071D83E437001B1594 /* main.png in Resources */,
+				272AF9091D83E437001B1594 /* star.png in Resources */,
+				272AF8FF1D83E2A9001B1594 /* loading.png in Resources */,
+				272AF9081D83E437001B1594 /* nest.png in Resources */,
 				2700C5181D83BE2900806015 /* GameScene.sks in Resources */,
+				272AF9061D83E437001B1594 /* enemy.png in Resources */,
+				272AF9051D83E437001B1594 /* background in Resources */,
 				2700C5241D83BE2900806015 /* LaunchScreen.storyboard in Resources */,
 				2700C5211D83BE2900806015 /* Assets.xcassets in Resources */,
 				2700C51F1D83BE2900806015 /* Main.storyboard in Resources */,
@@ -298,6 +322,7 @@
 				2700C52A1D83BE2900806015 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
