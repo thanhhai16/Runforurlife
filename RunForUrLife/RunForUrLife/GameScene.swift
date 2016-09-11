@@ -18,8 +18,8 @@ class GameScene: SKScene {
     var yourSpeed : CGFloat = 1.5
     var enemySpeed : CGFloat = 2
     
-    let timeNextEnemy = 3
-    let MAXEnemy = 10
+    let timeNextEnemy = 10
+    let MAXEnemy = 7
     
     let positionNest = CGPoint(x: 1, y: 0)
     //vi tri nest trong voi Gamescene -(1,0) nghia la goc duoi phai
@@ -42,7 +42,7 @@ class GameScene: SKScene {
     }
     
     func addNest(location : CGPoint){
-        let nest = SKSpriteNode(imageNamed: "nest.png")
+        let nest = SKSpriteNode(imageNamed: "circlenest.png")
         
         //        nest.anchorPoint = CGPoint(x: 1, y: 0)
         nest.position = location

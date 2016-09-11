@@ -21,6 +21,7 @@
 		84C217081D845AEF0087559D /* nest.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C217071D845AEF0087559D /* nest.png */; };
 		84C2170A1D845AF60087559D /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C217091D845AF60087559D /* star.png */; };
 		84C2170C1D845BDB0087559D /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C2170B1D845BDB0087559D /* Spaceship.png */; };
+		84CD2BAD1D8504720055DA0B /* circlenest.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CD2BAC1D8504720055DA0B /* circlenest.png */; };
 		84E510FB1D8483290059C35A /* CGPointExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E510FA1D8483290059C35A /* CGPointExtention.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		84C217071D845AEF0087559D /* nest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nest.png; sourceTree = "<group>"; };
 		84C217091D845AF60087559D /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		84C2170B1D845BDB0087559D /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		84CD2BAC1D8504720055DA0B /* circlenest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circlenest.png; sourceTree = "<group>"; };
 		84E510FA1D8483290059C35A /* CGPointExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtention.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +78,7 @@
 			children = (
 				84E510FC1D8483E00059C35A /* utilities */,
 				84C217011D84594E0087559D /* background.png */,
+				84CD2BAC1D8504720055DA0B /* circlenest.png */,
 				84C217091D845AF60087559D /* star.png */,
 				84C217051D845AEA0087559D /* main.png */,
 				84C2170B1D845BDB0087559D /* Spaceship.png */,
@@ -169,6 +172,7 @@
 				84C217041D845AE00087559D /* enemy.png in Resources */,
 				2700C5181D83BE2900806015 /* GameScene.sks in Resources */,
 				2700C5241D83BE2900806015 /* LaunchScreen.storyboard in Resources */,
+				84CD2BAD1D8504720055DA0B /* circlenest.png in Resources */,
 				2700C5211D83BE2900806015 /* Assets.xcassets in Resources */,
 				2700C51F1D83BE2900806015 /* Main.storyboard in Resources */,
 			);
