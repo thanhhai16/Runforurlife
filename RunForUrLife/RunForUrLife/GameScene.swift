@@ -19,12 +19,12 @@ class GameScene: SKScene {
     var yourScore = 0
     var yourSpeed : CGFloat = 1.5               //toc do di chuyen cua player
     var enemySpeed : CGFloat = 2                //toc do di chuyen cua enemy
-    var enemyBulletSpeed : CGFloat = 4          //toc do di chuyen cua Bullet
+    var enemyBulletSpeed : CGFloat = 1.5          //toc do di chuyen cua Bullet
     var scoreLabel : SKLabelNode!               //Display your score
     
     
-    let timeNextEnemy = 7                       //khoang tgian sinh enemy
-    let timeNextBulletEnemy = 1                 //khoang tgian sinh bullet
+    let timeNextEnemy = 70                       //khoang tgian sinh enemy
+    let timeNextBulletEnemy = 5                 //khoang tgian sinh bullet
     let MAXEnemy = 7                            //so luong enemy
     let MAXGate = 4                             //so luong Gate
     
@@ -122,12 +122,13 @@ class GameScene: SKScene {
             // khoang cach xay ra va cham la bound
             let bound = (gate.frame.size.height + gate.frame.size.width) / 4
             if self.you.position.distance(gate.position) < bound {
-                //neu va cham, vi tri yourPosition la vi tri newGate (Gate x <-> MAXGate - 1 - index)
-                let yourPosition = self.gates[self.MAXGate - 1 - index].position
+                var yourPosition = CGPoint(x: self.frame.size.width, y: self.frame.size.height)
+                yourPosition = yourPosition.subtract(positionGate)
                 //can dat vi tri cua player ra xa hon bound so voi newGate moi de ko bi cham vao newGate
                 //vector: vector can dich chuyen so voi vitri newGate
                 let vector = center.subtract(yourPosition).normalize().multiply(bound * 1.2)
                 self.you.position = yourPosition.add(vector)
+//                self.you.position = CGPoint(x: self.frame.size.width/2, y: self.size.height)
             }
         }
         let testPeriod = SKAction.sequence([test,SKAction.waitForDuration(0.001)])
@@ -152,6 +153,7 @@ class GameScene: SKScene {
     func addEnemyBullet(positionBulletEnemy : CGPoint) {
         //them bullet ban ra tu positionBulletEnemy
         let enemyBullet = SKSpriteNode(imageNamed: "bullet-red-dot.png")
+        enemyBullet.setScale(0.5)
         
         enemyBullet.position = positionBulletEnemy
         //vector dich chuyen
@@ -165,7 +167,7 @@ class GameScene: SKScene {
         
         let test = SKAction.runBlock {
             //check va cham
-            if CGRectIntersectsRect(enemyBullet.frame, self.you.frame) {
+            if enemyBullet.position.distance(self.you.position) < enemyBullet.frame.size.width  {
                 self.paused = true
             }
         }
@@ -194,7 +196,7 @@ class GameScene: SKScene {
             let deltaTime = currentTime - lastUpdateTime
             let deltaTimeMiliseconds = deltaTime * 1000
             
-            if deltaTimeMiliseconds > 1000 {
+            if deltaTimeMiliseconds > 100 {
                 lastUpdateTime = currentTime
                 countEnemy += 1
                 if(countEnemy > timeNextEnemy){
