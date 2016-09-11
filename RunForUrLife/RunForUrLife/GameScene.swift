@@ -9,32 +9,59 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    var you : SKSpriteNode!
+    var you : SKSpriteNode!                     //player
     var lastUpdateTime : NSTimeInterval = -1
-    var countEnemy = 0
-    var indexEnemy = 0
-    var enemies : [(SKSpriteNode,CGFloat)] = []
+    var countEnemy = 0                          //dem tgian sinh enemy
+    var countBulletEnemy = 0                    //dem tgian sinh Bullet tu Nest
+    var indexEnemy = 0                          // chi so enemy vua sinh ra
+    var enemies : [(SKSpriteNode,CGFloat)] = [] //cac enemy gom: Node va speed cua enemy
+    var gates : [SKSpriteNode] = []             //cac Gate
     var yourScore = 0
-    var yourSpeed : CGFloat = 1.5
-    var enemySpeed : CGFloat = 2
+    var yourSpeed : CGFloat = 1.5               //toc do di chuyen cua player
+    var enemySpeed : CGFloat = 2                //toc do di chuyen cua enemy
+    var enemyBulletSpeed : CGFloat = 4          //toc do di chuyen cua Bullet
+    var scoreLabel : SKLabelNode!               //Display your score
     
-    let timeNextEnemy = 10
-    let MAXEnemy = 7
     
-    let positionNest = CGPoint(x: 1, y: 0)
-    //vi tri nest trong voi Gamescene -(1,0) nghia la goc duoi phai
+    let timeNextEnemy = 7                       //khoang tgian sinh enemy
+    let timeNextBulletEnemy = 1                 //khoang tgian sinh bullet
+    let MAXEnemy = 7                            //so luong enemy
+    let MAXGate = 4                             //so luong Gate
+    
+    let positionNest = CGPoint(x: 1, y: 0.5)    //vi tri nest tuong doi voi Gamescene vd:(1,0) nghia la goc duoi phai
     
     override func didMoveToView(view: SKView) {
         addBackground()
         
+        //vi tri Nest chinh xac trong GameScene
         let positionNestInGS = CGPoint(x: self.frame.size.width * positionNest.x, y: self.frame.size.height * positionNest.y)
-        addNest(positionNestInGS)
         
-        addMain()
-        addStar()
+        addNest(positionNestInGS)   //them nest vao vitri positionNestInGS
+        addMain()   //player
+        addStar()   //star - food
+        
+        //them 4 Gate - 4 goc
+        addGate(firstArg: "gate.png", secondArg: 0, thirdArg: CGPointZero)
+        addGate(firstArg: "gate2.png", secondArg: 1, thirdArg: CGPoint(x: self.frame.size.width, y: 0))
+        addGate(firstArg: "gate2.png", secondArg: 2, thirdArg: CGPoint(x: 0, y: self.frame.size.height))
+        addGate(firstArg: "gate.png", secondArg: 3, thirdArg: CGPoint(x: self.frame.size.width, y: self.frame.size.height))
+        //in ra score = 0
+               scoreLabel = SKLabelNode(text: "Score :\(yourScore)")
+        addChild(scoreLabel)
+    }
+    
+    func updateLabel()  {
+        //update score
+        scoreLabel.removeFromParent()   //remove label cu
+        scoreLabel = SKLabelNode(text: "Score :\(yourScore)")   //them label moi
+        scoreLabel.position = CGPoint(x: self.frame.width/2, y: self.frame.height - scoreLabel.frame.height)
+        scoreLabel.fontColor = UIColor.darkGrayColor()
+        scoreLabel.fontSize = 30
+        addChild(scoreLabel)    //hien thi label moi
     }
     func addBackground(){
-        let background = SKSpriteNode(imageNamed: "background.png")
+        //cai background
+        let background = SKSpriteNode(imageNamed: "background2.png")
         background.anchorPoint = CGPointZero
         background.position = CGPointZero
         //        print(self.frame.size.width)
@@ -42,52 +69,114 @@ class GameScene: SKScene {
     }
     
     func addNest(location : CGPoint){
+        //cai Nest vao vi tri location
         let nest = SKSpriteNode(imageNamed: "circlenest.png")
-        
-        //        nest.anchorPoint = CGPoint(x: 1, y: 0)
+        nest.setScale(0.5)// chinh kich thuoc Nest
         nest.position = location
         addChild(nest)
     }
     
     func addMain() {
-        you = SKSpriteNode(imageNamed: "main.png")
+        //add player vao trung tam
+        you = SKSpriteNode(imageNamed: "mouse.png")
+        you.setScale(0.05) //chinh lai kich thuoc player
         you.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
         addChild(you)
     }
     
     func addStar() {
-        let star = SKSpriteNode(imageNamed: "star.png")
+        //them star
+        let star = SKSpriteNode(imageNamed: "star2.png")
+        star.setScale(0.1)  //chinh lai kich thuoc star
+        
+        //set position cua star bat ki
         star.position = CGPoint(x: CGFloat(Int(arc4random_uniform(UInt32 (self.frame.size.width)))), y: CGFloat(Int(arc4random_uniform(UInt32 (self.frame.size.height)))))
         addChild(star)
-        //        print("hello")
+        
+        //cho star runaction kiem tra va cham
         let test = SKAction.runBlock {
             if CGRectIntersectsRect(star.frame, self.you.frame) {
-                self.yourScore += 1
+                //neu va cham thi tang diem
+                self.yourScore = self.yourScore + 1
                 star.position = CGPoint(x: CGFloat(Int(arc4random_uniform(UInt32 (self.frame.size.width)))), y: CGFloat(Int(arc4random_uniform(UInt32 (self.frame.size.height)))))
-                
-                //                self.print("your scode: \(yourScore)")
+                //dat lai vi tri star moi
             }
         }
-        let testPeriod = SKAction.sequence([test,SKAction.waitForDuration(0.05)])
+        let testPeriod = SKAction.sequence([test,SKAction.waitForDuration(0.001)])
         let testForever = SKAction.repeatActionForever(testPeriod)
         star.runAction(testForever)
     }
     
+    func addGate(firstArg name : String, secondArg index : Int, thirdArg positionGate : CGPoint) {
+        //them Gate voi image:name, chi so Gate la index, vi tri Gate: positionGate
+        let gate = SKSpriteNode(imageNamed: name)
+        gate.setScale(0.02) //chinh lai kich thuoc
+        gate.position = positionGate
+        addChild(gate)
+        //chen vao danh sach cac gate
+        gates.insert(gate, atIndex: index)
+        //center la point trung tam cua GameScene
+        let center = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        //cac Gate test va cham forever
+        let test = SKAction.runBlock {
+            // khoang cach xay ra va cham la bound
+            let bound = (gate.frame.size.height + gate.frame.size.width) / 4
+            if self.you.position.distance(gate.position) < bound {
+                //neu va cham, vi tri yourPosition la vi tri newGate (Gate x <-> MAXGate - 1 - index)
+                let yourPosition = self.gates[self.MAXGate - 1 - index].position
+                //can dat vi tri cua player ra xa hon bound so voi newGate moi de ko bi cham vao newGate
+                //vector: vector can dich chuyen so voi vitri newGate
+                let vector = center.subtract(yourPosition).normalize().multiply(bound * 1.2)
+                self.you.position = yourPosition.add(vector)
+            }
+        }
+        let testPeriod = SKAction.sequence([test,SKAction.waitForDuration(0.001)])
+        let testForever = SKAction.repeatActionForever(testPeriod)
+        gate.runAction(testForever)
+    }
     func addEnemy(firstArg positionEnemy : CGPoint, secondArg index : Int){
+        //sinh ra enemy lan thu index + 1
         let enemy = SKSpriteNode(imageNamed: "enemy.png")
         enemy.position = positionEnemy
         if (index >= MAXEnemy) {
+            //neu da qua so luong MAXEnemy thi xoa bot Enemy cu
             let (en,sp) = enemies[index % MAXEnemy]
-            en.removeFromParent()
-            enemies.removeAtIndex(index % MAXEnemy)
+            en.removeFromParent()   //xoa hinh anh
+            enemies.removeAtIndex(index % MAXEnemy) //xoa phan tu
         }
-        enemies.insert((enemy, enemySpeed + CGFloat(index)/5), atIndex: index % MAXEnemy)
-        //        enemies.insert((enemy, CGFloat(enemySpeed + 0.1 * index)), atIndex: index % MAXEnemy)
+        //chen enemy moi voi speed = enemySpeed * (1 + CGFloat(index)/5))
+       enemies.insert((enemy, enemySpeed * (1 + CGFloat(index)/5)), atIndex: index % MAXEnemy)
         addChild(enemy)
+    }
+    
+    func addEnemyBullet(positionBulletEnemy : CGPoint) {
+        //them bullet ban ra tu positionBulletEnemy
+        let enemyBullet = SKSpriteNode(imageNamed: "bullet-red-dot.png")
+        
+        enemyBullet.position = positionBulletEnemy
+        //vector dich chuyen
+        let vectorMove = you.position.subtract(positionBulletEnemy).normalize().multiply(self.frame.size.height)
+        //Action dich chuyen
+        let move = SKAction.moveBy(CGVector(dx: vectorMove.x, dy: vectorMove.y), duration: NSTimeInterval ((self.frame.size.height + self.frame.size.width)/100/enemyBulletSpeed))
+        let movePeriod = SKAction.sequence([move, SKAction.waitForDuration(0.001)])
+        let moveForever = SKAction.repeatActionForever(movePeriod)
+        enemyBullet.runAction(moveForever)
+        //bullet dich chuyen forever
+        
+        let test = SKAction.runBlock {
+            //check va cham
+            if CGRectIntersectsRect(enemyBullet.frame, self.you.frame) {
+                self.paused = true
+            }
+        }
+        let testPeriod = SKAction.sequence([test,SKAction.waitForDuration(0.001)])
+        let testForever = SKAction.repeatActionForever(testPeriod)
+        enemyBullet.runAction(testForever)
+        //check va cham forever
+                addChild(enemyBullet)
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        print("touchesBegan")
         if let touch = touches.first{
             let touchPosition = touch.locationInNode(self)
             let move = SKAction.moveTo(touchPosition, duration:  NSTimeInterval(you.position.distance(touchPosition) / yourSpeed / 100))
@@ -97,6 +186,8 @@ class GameScene: SKScene {
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        updateLabel()
+        
         if lastUpdateTime == -1 {
             lastUpdateTime = currentTime
         } else {
@@ -113,6 +204,12 @@ class GameScene: SKScene {
                     countEnemy = 0
                     indexEnemy += 1
                 }
+                countBulletEnemy += 1
+                if(countBulletEnemy > timeNextBulletEnemy){
+                    let positionNestInGS = CGPoint(x: self.frame.size.width * positionNest.x, y: self.frame.size.height * positionNest.y)
+                    addEnemyBullet(positionNestInGS)
+                    countBulletEnemy = 0
+                }
             }
         }
         
@@ -120,17 +217,11 @@ class GameScene: SKScene {
             en.position = en.position.add(you.position.subtract(en.position).normalize().multiply(sp))
         }
         
-        //        for (bulletIndex, bullet) in bullets.enumerate() {
-        //            for (enemyIndex, enemy) in enemies.enumerate() {
-        //                let bulletFrame = bullet.frame
-        //                let enemyFrame = enemy.frame
-        //                if(CGRectIntersectsRect(bulletFrame, enemyFrame)){
-        //                    bullets.removeAtIndex(bulletIndex)
-        //                    enemies.removeAtIndex(enemyIndex)
-        //                    bullet.removeFromParent()
-        //                    enemy.removeFromParent()
-        //                }
-        //            }
-        //        }
+        //check va cham cua cac enemy voi player
+        for(en,sp) in enemies {
+            if en.position.distance(you.position) < (en.frame.size.height + en.frame.size.width) / 2{
+                self.paused = true
+            }
+        }
     }
 }
