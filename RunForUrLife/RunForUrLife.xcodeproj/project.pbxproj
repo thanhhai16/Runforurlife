@@ -15,11 +15,13 @@
 		2700C5211D83BE2900806015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2700C5201D83BE2900806015 /* Assets.xcassets */; };
 		2700C5241D83BE2900806015 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2700C5221D83BE2900806015 /* LaunchScreen.storyboard */; };
 		272AF8FF1D83E2A9001B1594 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 272AF8FE1D83E2A9001B1594 /* loading.png */; };
-		272AF9051D83E437001B1594 /* background in Resources */ = {isa = PBXBuildFile; fileRef = 272AF9001D83E437001B1594 /* background */; };
-		272AF9061D83E437001B1594 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 272AF9011D83E437001B1594 /* enemy.png */; };
-		272AF9071D83E437001B1594 /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 272AF9021D83E437001B1594 /* main.png */; };
-		272AF9081D83E437001B1594 /* nest.png in Resources */ = {isa = PBXBuildFile; fileRef = 272AF9031D83E437001B1594 /* nest.png */; };
-		272AF9091D83E437001B1594 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 272AF9041D83E437001B1594 /* star.png */; };
+		84C217021D84594E0087559D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C217011D84594E0087559D /* background.png */; };
+		84C217041D845AE00087559D /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C217031D845AE00087559D /* enemy.png */; };
+		84C217061D845AEA0087559D /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C217051D845AEA0087559D /* main.png */; };
+		84C217081D845AEF0087559D /* nest.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C217071D845AEF0087559D /* nest.png */; };
+		84C2170A1D845AF60087559D /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C217091D845AF60087559D /* star.png */; };
+		84C2170C1D845BDB0087559D /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C2170B1D845BDB0087559D /* Spaceship.png */; };
+		84E510FB1D8483290059C35A /* CGPointExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E510FA1D8483290059C35A /* CGPointExtention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +35,13 @@
 		2700C5231D83BE2900806015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2700C5251D83BE2900806015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		272AF8FE1D83E2A9001B1594 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
-		272AF9001D83E437001B1594 /* background */ = {isa = PBXFileReference; lastKnownFileType = file; path = background; sourceTree = "<group>"; };
-		272AF9011D83E437001B1594 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
-		272AF9021D83E437001B1594 /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
-		272AF9031D83E437001B1594 /* nest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nest.png; sourceTree = "<group>"; };
-		272AF9041D83E437001B1594 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		84C217011D84594E0087559D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		84C217031D845AE00087559D /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
+		84C217051D845AEA0087559D /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
+		84C217071D845AEF0087559D /* nest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nest.png; sourceTree = "<group>"; };
+		84C217091D845AF60087559D /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		84C2170B1D845BDB0087559D /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		84E510FA1D8483290059C35A /* CGPointExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtention.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,11 +74,13 @@
 		2700C5141D83BE2900806015 /* RunForUrLife */ = {
 			isa = PBXGroup;
 			children = (
-				272AF9001D83E437001B1594 /* background */,
-				272AF9011D83E437001B1594 /* enemy.png */,
-				272AF9021D83E437001B1594 /* main.png */,
-				272AF9031D83E437001B1594 /* nest.png */,
-				272AF9041D83E437001B1594 /* star.png */,
+				84E510FC1D8483E00059C35A /* utilities */,
+				84C217011D84594E0087559D /* background.png */,
+				84C217091D845AF60087559D /* star.png */,
+				84C217051D845AEA0087559D /* main.png */,
+				84C2170B1D845BDB0087559D /* Spaceship.png */,
+				84C217031D845AE00087559D /* enemy.png */,
+				84C217071D845AEF0087559D /* nest.png */,
 				272AF8FE1D83E2A9001B1594 /* loading.png */,
 				2700C5151D83BE2900806015 /* AppDelegate.swift */,
 				2700C5171D83BE2900806015 /* GameScene.sks */,
@@ -86,6 +92,14 @@
 				2700C5251D83BE2900806015 /* Info.plist */,
 			);
 			path = RunForUrLife;
+			sourceTree = "<group>";
+		};
+		84E510FC1D8483E00059C35A /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				84E510FA1D8483290059C35A /* CGPointExtention.swift */,
+			);
+			name = utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,13 +160,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				272AF9071D83E437001B1594 /* main.png in Resources */,
-				272AF9091D83E437001B1594 /* star.png in Resources */,
+				84C2170C1D845BDB0087559D /* Spaceship.png in Resources */,
+				84C217061D845AEA0087559D /* main.png in Resources */,
+				84C2170A1D845AF60087559D /* star.png in Resources */,
+				84C217021D84594E0087559D /* background.png in Resources */,
+				84C217081D845AEF0087559D /* nest.png in Resources */,
 				272AF8FF1D83E2A9001B1594 /* loading.png in Resources */,
-				272AF9081D83E437001B1594 /* nest.png in Resources */,
+				84C217041D845AE00087559D /* enemy.png in Resources */,
 				2700C5181D83BE2900806015 /* GameScene.sks in Resources */,
-				272AF9061D83E437001B1594 /* enemy.png in Resources */,
-				272AF9051D83E437001B1594 /* background in Resources */,
 				2700C5241D83BE2900806015 /* LaunchScreen.storyboard in Resources */,
 				2700C5211D83BE2900806015 /* Assets.xcassets in Resources */,
 				2700C51F1D83BE2900806015 /* Main.storyboard in Resources */,
@@ -168,6 +183,7 @@
 			files = (
 				2700C51A1D83BE2900806015 /* GameScene.swift in Sources */,
 				2700C51C1D83BE2900806015 /* GameViewController.swift in Sources */,
+				84E510FB1D8483290059C35A /* CGPointExtention.swift in Sources */,
 				2700C5161D83BE2900806015 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,7 +247,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -271,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -288,6 +304,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vn.Hai.RunForUrLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -300,6 +317,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vn.Hai.RunForUrLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
