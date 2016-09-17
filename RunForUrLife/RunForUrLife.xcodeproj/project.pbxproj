@@ -18,6 +18,9 @@
 		84139F2C1D854554007CA38F /* bullet-dot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84139F2B1D854554007CA38F /* bullet-dot.jpg */; };
 		84139F2E1D854AB7007CA38F /* bullet-red-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 84139F2D1D854AB7007CA38F /* bullet-red-dot.png */; };
 		84139F301D8551DD007CA38F /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 84139F2F1D8551DD007CA38F /* mouse.png */; };
+		84A22C431D8D33740089BAED /* Pickup_Coin9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84A22C421D8D33740089BAED /* Pickup_Coin9.wav */; };
+		84A22C451D8D33810089BAED /* Pickup_Coin11.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84A22C441D8D33810089BAED /* Pickup_Coin11.wav */; };
+		84A22C471D8D33920089BAED /* Blip_Select3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84A22C461D8D33920089BAED /* Blip_Select3.wav */; };
 		84C217021D84594E0087559D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C217011D84594E0087559D /* background.png */; };
 		84C217041D845AE00087559D /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C217031D845AE00087559D /* enemy.png */; };
 		84C217061D845AEA0087559D /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C217051D845AEA0087559D /* main.png */; };
@@ -46,6 +49,9 @@
 		84139F2B1D854554007CA38F /* bullet-dot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bullet-dot.jpg"; sourceTree = "<group>"; };
 		84139F2D1D854AB7007CA38F /* bullet-red-dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bullet-red-dot.png"; sourceTree = "<group>"; };
 		84139F2F1D8551DD007CA38F /* mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mouse.png; sourceTree = "<group>"; };
+		84A22C421D8D33740089BAED /* Pickup_Coin9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Pickup_Coin9.wav; sourceTree = "<group>"; };
+		84A22C441D8D33810089BAED /* Pickup_Coin11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Pickup_Coin11.wav; sourceTree = "<group>"; };
+		84A22C461D8D33920089BAED /* Blip_Select3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Blip_Select3.wav; sourceTree = "<group>"; };
 		84C217011D84594E0087559D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		84C217031D845AE00087559D /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		84C217051D845AEA0087559D /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
@@ -90,7 +96,34 @@
 		2700C5141D83BE2900806015 /* RunForUrLife */ = {
 			isa = PBXGroup;
 			children = (
+				84A22C4B1D8D356D0089BAED /* image */,
+				84A22C411D8D33690089BAED /* sound */,
 				84E510FC1D8483E00059C35A /* utilities */,
+				2700C5171D83BE2900806015 /* GameScene.sks */,
+				2700C5191D83BE2900806015 /* GameScene.swift */,
+				2700C51B1D83BE2900806015 /* GameViewController.swift */,
+				2700C51D1D83BE2900806015 /* Main.storyboard */,
+				2700C5151D83BE2900806015 /* AppDelegate.swift */,
+				2700C5201D83BE2900806015 /* Assets.xcassets */,
+				2700C5221D83BE2900806015 /* LaunchScreen.storyboard */,
+				2700C5251D83BE2900806015 /* Info.plist */,
+			);
+			path = RunForUrLife;
+			sourceTree = "<group>";
+		};
+		84A22C411D8D33690089BAED /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				84A22C461D8D33920089BAED /* Blip_Select3.wav */,
+				84A22C441D8D33810089BAED /* Pickup_Coin11.wav */,
+				84A22C421D8D33740089BAED /* Pickup_Coin9.wav */,
+			);
+			name = sound;
+			sourceTree = "<group>";
+		};
+		84A22C4B1D8D356D0089BAED /* image */ = {
+			isa = PBXGroup;
+			children = (
 				84C217011D84594E0087559D /* background.png */,
 				84CD2BB41D8515910055DA0B /* gate.png */,
 				84CD2BB81D8519AF0055DA0B /* gate2.png */,
@@ -106,16 +139,8 @@
 				84139F2B1D854554007CA38F /* bullet-dot.jpg */,
 				84139F2D1D854AB7007CA38F /* bullet-red-dot.png */,
 				84139F2F1D8551DD007CA38F /* mouse.png */,
-				2700C5171D83BE2900806015 /* GameScene.sks */,
-				2700C5191D83BE2900806015 /* GameScene.swift */,
-				2700C51B1D83BE2900806015 /* GameViewController.swift */,
-				2700C51D1D83BE2900806015 /* Main.storyboard */,
-				2700C5151D83BE2900806015 /* AppDelegate.swift */,
-				2700C5201D83BE2900806015 /* Assets.xcassets */,
-				2700C5221D83BE2900806015 /* LaunchScreen.storyboard */,
-				2700C5251D83BE2900806015 /* Info.plist */,
 			);
-			path = RunForUrLife;
+			name = image;
 			sourceTree = "<group>";
 		};
 		84E510FC1D8483E00059C35A /* utilities */ = {
@@ -193,6 +218,7 @@
 				84C217021D84594E0087559D /* background.png in Resources */,
 				84C217081D845AEF0087559D /* nest.png in Resources */,
 				84139F2E1D854AB7007CA38F /* bullet-red-dot.png in Resources */,
+				84A22C431D8D33740089BAED /* Pickup_Coin9.wav in Resources */,
 				84139F2C1D854554007CA38F /* bullet-dot.jpg in Resources */,
 				272AF8FF1D83E2A9001B1594 /* loading.png in Resources */,
 				84C217041D845AE00087559D /* enemy.png in Resources */,
@@ -201,8 +227,10 @@
 				2700C5241D83BE2900806015 /* LaunchScreen.storyboard in Resources */,
 				84CD2BB51D8515910055DA0B /* gate.png in Resources */,
 				84CD2BAD1D8504720055DA0B /* circlenest.png in Resources */,
+				84A22C451D8D33810089BAED /* Pickup_Coin11.wav in Resources */,
 				2700C5211D83BE2900806015 /* Assets.xcassets in Resources */,
 				2700C51F1D83BE2900806015 /* Main.storyboard in Resources */,
+				84A22C471D8D33920089BAED /* Blip_Select3.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
