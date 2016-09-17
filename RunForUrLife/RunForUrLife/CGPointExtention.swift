@@ -37,4 +37,12 @@ extension CGPoint {
         let Result = CGPoint(x: self.x / kc, y: self.y / kc)
         return Result
     }
+    
+}
+extension CGRect {
+    func mutiply(k : CGFloat) -> CGRect {
+        let h = self.size.height*2
+        let w = self.size.width*2
+        return CGRect(x: self.origin.x, y: self.origin.y, width: w, height: h)
+    }
 }
