@@ -47,7 +47,7 @@ class GameScene: SKScene {
         addGate(firstArg: "gate2_0.png", secondArg: 2, thirdArg: CGPoint(x: 0, y: self.frame.size.height))
         addGate(firstArg: "gate1_0.png", secondArg: 3, thirdArg: CGPoint(x: self.frame.size.width, y: self.frame.size.height))
         //in ra score = 0
-               scoreLabel = SKLabelNode(text: "Score :\(yourScore)")
+        scoreLabel = SKLabelNode(text: "Score :\(yourScore)")
         addChild(scoreLabel)
     }
     
@@ -78,6 +78,7 @@ class GameScene: SKScene {
         nest.setScale(0.17)// chinh kich thuoc Nest
         nest.position = location
         addChild(nest)
+<<<<<<< HEAD
         var nestShotTexures : [SKTexture] = []
         let nameNestFormat = "nest_"
         for i in 0..<3 {
@@ -109,6 +110,14 @@ class GameScene: SKScene {
         let animateOpen = SKAction.animateWithTextures(nestOpenTextures, timePerFrame: 0.07)
         let enemySpawnPeriod = SKAction.sequence([SKAction.waitForDuration(5),animateOpen, enemySpawn, enemySpawnSound])
         nest.runAction(SKAction.repeatActionForever(enemySpawnPeriod))
+=======
+        let shotEnemyBullet = SKAction.runBlock {
+            self.addEnemyBullet(location)
+        }
+        let shotEnemyBulletPeriod = SKAction.sequence([shotEnemyBullet, SKAction.waitForDuration(1)])
+        let shotEnemyBulletForever = SKAction.repeatActionForever(shotEnemyBulletPeriod)
+        nest.runAction(shotEnemyBulletForever)
+>>>>>>> 54165e5b9be73b454686d3b95d23c8f9c842e3e6
     }
     
     func addMain() {
@@ -139,6 +148,8 @@ class GameScene: SKScene {
             if CGRectIntersectsRect(star.frame, self.you.frame) {
                 //neu va cham thi tang diem
                 self.yourScore = self.yourScore + 1
+                let soundEat = SKAction.playSoundFileNamed("Pickup_Coin11.wav", waitForCompletion: false)
+                star.runAction(soundEat)
                 star.position = CGPoint(x: CGFloat(Int(arc4random_uniform(UInt32 (self.frame.size.width)))), y: CGFloat(Int(arc4random_uniform(UInt32 (self.frame.size.height)))))
                 let playSoundPickUp = SKAction.playSoundFileNamed("pickup_.wav", waitForCompletion: false)
                 self.runAction(playSoundPickUp)
@@ -183,7 +194,7 @@ class GameScene: SKScene {
                 //vector: vector can dich chuyen so voi vitri newGate
                 let vector = center.subtract(yourPosition).normalize().multiply(bound * 1.2)
                 self.you.position = yourPosition.add(vector)
-//                self.you.position = CGPoint(x: self.frame.size.width/2, y: self.size.height)
+                //                self.you.position = CGPoint(x: self.frame.size.width/2, y: self.size.height)
             }
         }
         let testPeriod = SKAction.sequence([test,SKAction.waitForDuration(0.001)])
@@ -209,7 +220,7 @@ class GameScene: SKScene {
             enemies.removeAtIndex(index % MAXEnemy) //xoa phan tu
         }
         //chen enemy moi voi speed = enemySpeed * (1 + CGFloat(index)/5))
-       enemies.insert((enemy, enemySpeed * (1 + CGFloat(index)/5)), atIndex: index % MAXEnemy)
+        enemies.insert((enemy, enemySpeed * (1 + CGFloat(index)/5)), atIndex: index % MAXEnemy)
         addChild(enemy)
     }
     
@@ -227,6 +238,7 @@ class GameScene: SKScene {
         let moveForever = SKAction.repeatActionForever(movePeriod)
         enemyBullet.runAction(moveForever)
         //bullet dich chuyen forever
+<<<<<<< HEAD
 //        
 //        let test = SKAction.runBlock {
 //            //check va cham
@@ -240,6 +252,22 @@ class GameScene: SKScene {
 //        //check va cham forever
               addChild(enemyBullet)
         enemyBullet.name = "enemyBullet"
+=======
+        
+        let test = SKAction.runBlock {
+            //check va cham
+            if enemyBullet.position.distance(self.you.position) < enemyBullet.frame.size.width  {
+                let soundDie = SKAction.playSoundFileNamed("Blip_Select3.wav", waitForCompletion: false)
+                enemyBullet.runAction(soundDie)
+                self.paused = true
+            }
+        }
+        let testPeriod = SKAction.sequence([test,SKAction.waitForDuration(0.001)])
+        let testForever = SKAction.repeatActionForever(testPeriod)
+        enemyBullet.runAction(testForever)
+        //check va cham forever
+        addChild(enemyBullet)
+>>>>>>> 54165e5b9be73b454686d3b95d23c8f9c842e3e6
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
@@ -254,6 +282,7 @@ class GameScene: SKScene {
         /* Called before each frame is rendered */
         updateLabel()
         
+<<<<<<< HEAD
 //        if lastUpdateTime == -1 {
 //            lastUpdateTime = currentTime
 //        } else {
@@ -278,14 +307,42 @@ class GameScene: SKScene {
 ////                }
 //            }
 //        }
+=======
+        if lastUpdateTime == -1 {
+            lastUpdateTime = currentTime
+        } else {
+            let deltaTime = currentTime - lastUpdateTime
+            let deltaTimeMiliseconds = deltaTime * 1000
+            
+            if deltaTimeMiliseconds > 100 {
+                lastUpdateTime = currentTime
+                countEnemy += 1
+                if(countEnemy > timeNextEnemy){
+                    let positionNestInGS = CGPoint(x: self.frame.size.width * positionNest.x, y: self.frame.size.height * positionNest.y)
+                    
+                    addEnemy(firstArg: positionNestInGS, secondArg: indexEnemy)
+                    countEnemy = 0
+                    indexEnemy += 1
+                }
+                countBulletEnemy += 1
+            }
+        }
+>>>>>>> 54165e5b9be73b454686d3b95d23c8f9c842e3e6
         
         for (en,sp) in enemies {
             en.position = en.position.add(you.position.subtract(en.position).normalize().multiply(sp))
         }
         
         //check va cham cua cac enemy voi player
-        for(en,sp) in enemies {
+        for(en,_) in enemies {
             if en.position.distance(you.position) < (en.frame.size.height + en.frame.size.width) / 2{
+//                print("die")
+//                let temp = SKSpriteNode(imageNamed: "circlenest.png")
+//                let soundDie = SKAction.playSoundFileNamed("Blip_Select3.wav", waitForCompletion: false)
+//                addChild(temp)
+//                temp.runAction(soundDie)
+                //ko hieu sao ko co am thanh??
+//                temp.removeFromParent()
                 self.paused = true
             }
         }
